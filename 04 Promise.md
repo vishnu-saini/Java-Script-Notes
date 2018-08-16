@@ -1,4 +1,4 @@
-# sectionPromises
+# Promises
 
 Starting with ECMAScript2015, JavaScript gains support for Promise objects allowing you to control the flow of deferred and asynchronous operations.
 
@@ -33,3 +33,5 @@ function imgLoad(url) {
   });
 }
 ```
+
+[For more details](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
