@@ -1,0 +1,55 @@
+# Numbers
+
+In JavaScript, all numbers are implemented in double-precision 64-bit binary format IEEE 754 (i.e. a number between -(2^53 -1) and 2^53 -1). There is no specific type for integers. In addition to being able to represent floating-point numbers, the number type has three symbolic values: `+Infinity`, `-Infinity`, and `NaN` (not-a-number).
+
+## Decimal numbers
+```
+1234567890
+42
+
+// Caution when using leading zeros:
+
+0888 // 888 parsed as decimal
+0777 // parsed as octal in non-strict mode (511 in decimal)
+```
+## Binary numbers
+Binary number syntax uses a leading zero followed by a lowercase or uppercase Latin letter "B" (0b or 0B). If the digits after the 0b are not 0 or 1, the following SyntaxError is thrown: "Missing binary digits after 0b".
+```javascript
+var FLT_SIGNBIT  = 0b10000000000000000000000000000000; // 2147483648
+var FLT_EXPONENT = 0b01111111100000000000000000000000; // 2139095040
+var FLT_MANTISSA = 0B00000000011111111111111111111111; // 8388607
+```
+
+## Octal numbers
+Octal number syntax uses a leading zero. If the digits after the 0 are outside the range 0 through 7, the number will be interpreted as a decimal number.
+```
+var n = 0755; // 493
+var m = 0644; // 420
+```
+Strict mode in ECMAScript 5 forbids octal syntax. Octal syntax isn't part of ECMAScript 5, but it's supported in all browsers by prefixing the octal number with a zero: 0644 === 420 and"\045" === "%". In ECMAScript 2015, octal numbers are supported if they are prefixed with 0o, e.g.: 
+```javascript
+var a = 0o10; // ES2015: 8
+```
+## Hexadecimal numbers
+Hexadecimal number syntax uses a leading zero followed by a lowercase or uppercase Latin letter "X" (0x or 0X). If the digits after 0x are outside the range (0123456789ABCDEF),  the following SyntaxError is thrown: "Identifier starts immediately after numeric literal".
+
+## `Number` object
+
+The built-in Number object has properties for numerical constants, such as maximum value, not-a-number, and infinity. You cannot change the values of these properties and you use them as follows:
+
+```javascript
+var biggestNum = Number.MAX_VALUE;
+var smallestNum = Number.MIN_VALUE;
+var infiniteNum = Number.POSITIVE_INFINITY;
+var negInfiniteNum = Number.NEGATIVE_INFINITY;
+var notANum = Number.NaN;
+```
+### Methods of Number
+Method | 	Description
+--- | ---
+`Number.parseFloat()` | 	Parses a string argument and returns a floating point number. Same as the global parseFloat() function.
+`Number.parseInt()` | 	Parses a string argument and returns an integer of the specified radix or base. Same as the global parseInt() function.
+`Number.isFinite()` | 	Determines whether the passed value is a finite number.
+`Number.isInteger()` | 	Determines whether the passed value is an integer.
+`Number.isNaN()` | 	Determines whether the passed value is NaN. More robust version of the original global isNaN().
+`Number.isSafeInteger()` | 	Determines whether the provided value is a number that is a safe integer.
